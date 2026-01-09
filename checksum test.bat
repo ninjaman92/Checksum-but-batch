@@ -9,13 +9,14 @@ for /f "tokens=1" %%a in ('certutil -hashfile "%dir%" SHA256 ^| find /v "certuti
 REM above creates a variable based on the output of the command, while also removing the words certutil and hash
 
 if %input% == %output% (
-echo is similar;  %output%
+echo Is similar;  %output%
 ) else (
-echo failed to verify, it's actually
+echo Failed to verify, it's actually
 echo %output%
-echo vs expected checksum of
+echo vs. the expected checksum of
 echo %input%
 )
 REM above allows you to compare input and output using if else
 
 pause
+
